@@ -24,14 +24,14 @@ export VISUAL="vim"
 # which platform?
 UNAME=`uname`
 
-if [ -f $HOME/.functions ]; then
-    source $HOME/.functions
+if [ -f $HOME/.bash_functions ]; then
+    source $HOME/.bash_functions
 fi
 
 # find_git
 # find_brew
 find_completion
-find_ruby
+# find_ruby
 # find_subl
 fix_path
 

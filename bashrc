@@ -45,83 +45,97 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Colours
-txtblk='\[\033[0;30m\]' # Black - Regular
-txtred='\[\033[0;31m\]' # Red
-txtgrn='\[\033[0;32m\]' # Green
-txtylw='\[\033[0;33m\]' # Yellow
-txtblu='\[\033[0;34m\]' # Blue
-txtpur='\[\033[0;35m\]' # Purple
-txtcyn='\[\033[0;36m\]' # Cyan
-txtwht='\[\033[0;37m\]' # White
-bldblk='\[\033[1;30m\]' # Black - Bold
-bldred='\[\033[1;31m\]' # Red
-bldgrn='\[\033[1;32m\]' # Green
-bldylw='\[\033[1;33m\]' # Yellow
-bldblu='\[\033[1;34m\]' # Blue
-bldpur='\[\033[1;35m\]' # Purple
-bldcyn='\[\033[1;36m\]' # Cyan
-bldwht='\[\033[1;37m\]' # White
-unkblk='\[\033[4;30m\]' # Black - Underline
-undred='\[\033[4;31m\]' # Red
-undgrn='\[\033[4;32m\]' # Green
-undylw='\[\033[4;33m\]' # Yellow
-undblu='\[\033[4;34m\]' # Blue
-undpur='\[\033[4;35m\]' # Purple
-undcyn='\[\033[4;36m\]' # Cyan
-undwht='\[\033[4;37m\]' # White
-bakblk='\[\033[40m\]'   # Black - Background
-bakred='\[\033[41m\]'   # Red
-bakgrn='\[\033[42m\]'   # Green
-bakylw='\[\033[43m\]'   # Yellow
-bakblu='\[\033[44m\]'   # Blue
-bakpur='\[\033[45m\]'   # Purple
-bakcyn='\[\033[46m\]'   # Cyan
-bakwht='\[\033[47m\]'   # White
-txtrst='\[\033[0m\]'    # Text Reset
+# Reset
+Color_Off='\e[0m'       # Text Reset
 
-# Show stuff in prompt
-precmd() {
-    # my Tmux config has the host already, so we can hide it from the
-    # prompt.
-    if [ "$TMUX_PANE" ]; then
-        PS1=""
-    elif [ "$SSH_CONNECTION" ]; then
-        PS1="${txtrst}${txtred}@\h${txtrst} "
-    else
-        PS1="${txtrst}${txtpur}\h${txtrst} "
-    fi
+# Regular Colors
+Black='\e[0;30m'        # Black
+Red='\e[0;31m'          # Red
+Green='\e[0;32m'        # Green
+Yellow='\e[0;33m'       # Yellow
+Blue='\e[0;34m'         # Blue
+Purple='\e[0;35m'       # Purple
+Cyan='\e[0;36m'         # Cyan
+White='\e[0;37m'        # White
 
-    PS1="${PS1}${txtrst}${txtgrn}\w "
-    local ENDPROMPT="> ${txtrst}"
-    if [ "$SSH_CONNECTION" ]; then
-        ENDPROMPT="${txtred}${ENDPROMPT}"
-    fi
+# Bold
+BBlack='\e[1;30m'       # Black
+BRed='\e[1;31m'         # Red
+BGreen='\e[1;32m'       # Green
+BYellow='\e[1;33m'      # Yellow
+BBlue='\e[1;34m'        # Blue
+BPurple='\e[1;35m'      # Purple
+BCyan='\e[1;36m'        # Cyan
+BWhite='\e[1;37m'       # White
 
-    PS1="${PS1}${ENDPROMPT}"
-    PS2="${ENDPROMPT}"
+# Underline
+UBlack='\e[4;30m'       # Black
+URed='\e[4;31m'         # Red
+UGreen='\e[4;32m'       # Green
+UYellow='\e[4;33m'      # Yellow
+UBlue='\e[4;34m'        # Blue
+UPurple='\e[4;35m'      # Purple
+UCyan='\e[4;36m'        # Cyan
+UWhite='\e[4;37m'       # White
 
-    if ${SHOW_GIT_PROMPT:=true} ; then
-        if git branch >& /dev/null; then
-            if type __git_ps1 >/dev/null 2>&1; then
-                GIT_PS1_SHOWDIRTYSTATE=true
-                PS1="${txtrst}${txtblk}${bakylw} $(__git_ps1 '%s') ${txtrst} ${PS1}"
-            fi
-        fi
-    fi
+# Background
+On_Black='\e[40m'       # Black
+On_Red='\e[41m'         # Red
+On_Green='\e[42m'       # Green
+On_Yellow='\e[43m'      # Yellow
+On_Blue='\e[44m'        # Blue
+On_Purple='\e[45m'      # Purple
+On_Cyan='\e[46m'        # Cyan
+On_White='\e[47m'       # White
 
-    case $TERM in
-        xterm*|rxvt*)
-            PS1="\[\033]0;\h:\w\007\]${PS1}"
-            ;;
-    esac
-}
+# High Intensity
+IBlack='\e[0;90m'       # Black
+IRed='\e[0;91m'         # Red
+IGreen='\e[0;92m'       # Green
+IYellow='\e[0;93m'      # Yellow
+IBlue='\e[0;94m'        # Blue
+IPurple='\e[0;95m'      # Purple
+ICyan='\e[0;96m'        # Cyan
+IWhite='\e[0;97m'       # White
 
-PROMPT_COMMAND="precmd;$PROMPT_COMMAND"
+# Bold High Intensity
+BIBlack='\e[1;90m'      # Black
+BIRed='\e[1;91m'        # Red
+BIGreen='\e[1;92m'      # Green
+BIYellow='\e[1;93m'     # Yellow
+BIBlue='\e[1;94m'       # Blue
+BIPurple='\e[1;95m'     # Purple
+BICyan='\e[1;96m'       # Cyan
+BIWhite='\e[1;97m'      # White
 
-export PATH
+# High Intensity backgrounds
+On_IBlack='\e[0;100m'   # Black
+On_IRed='\e[0;101m'     # Red
+On_IGreen='\e[0;102m'   # Green
+On_IYellow='\e[0;103m'  # Yellow
+On_IBlue='\e[0;104m'    # Blue
+On_IPurple='\e[0;105m'  # Purple
+On_ICyan='\e[0;106m'    # Cyan
+On_IWhite='\e[0;107m'   # White
 
-# Work around tmux asynchronous `if-shell` behaviour
-if [ "$TMUX" ] && [ $TERM = "xterm-256color" ]; then
-    export TERM="screen-256color"
+###
+# Git juice  
+[[ -s "$HOME/.git-prompt.sh" ]] && source "$HOME/.git-prompt.sh"
+
+###
+# Boxen
+[[ -s "/opt/boxen/env.sh" ]] && source "/opt/boxen/env.sh"
+
+###
+# Aliases
+[[ -s "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
+
+###
+# Prompt setup
+if [ -e "/usr/bin/git" ]; then
+  PS1="\[$BGreen\]\u\[$BCyan\]@\[$BBlue\]\h\[$BYellow\]\[$BYellow\]\w\[\033[m\]\[$BPurple\]\$(__git_ps1)\[$BWhite\]\$ \[\033[00m\]" 
+else
+ #PS1='\[\033[01;32m\]\u\[\033[01;37m\]@\[\033[01;34m\]\h\[\033[00m\] \$ '
+  PS1='\[\033[01;32m\]\u\[\033[01;37m\]@\[\033[01;34m\]\h\[\033[00m\] . \W \$ '
 fi
+

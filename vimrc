@@ -66,3 +66,4 @@ filetype plugin indent on
 autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 cabbrev nt NERDTreeToggle<CR>
+let NERDTreeShowHidden=1

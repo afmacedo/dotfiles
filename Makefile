@@ -1,6 +1,6 @@
 SOURCE		:= $(CURDIR)
 TARGET		:= $(HOME)
-FILES		:= git-prompt.sh bash_aliases vim vimrc bash_profile bashrc bash_functions gitconfig gitignore 
+FILES		:= git-prompt.sh bash_aliases vim vimrc bash_profile bashrc bash_functions gitconfig gitignore slate
 
 UNAME		:= $(shell uname)
 

@@ -1,0 +1,121 @@
+# Configs
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config secondsBetweenRepeat 0.1
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
+config keyboardLayout qwerty
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+#config windowHintsDuration 5
+config windowHintsSpread true
+#config windowHintsOrder persist
+ 
+# Monitor Aliases
+alias monitor-main 0
+alias monitor-extr 1
+ 
+# Misc Aliases
+alias showHintsLeftHand hint AOEUIYQJKX
+alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
+alias browser 'Google Chrome'
+alias editor 'MacVim'
+ 
+# Abstract positions
+alias full          move screenOriginX;screenOriginY                             screenSizeX;screenSizeY
+alias lefthalf      move screenOriginX;screenOriginY                             screenSizeX/2;screenSizeY
+alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY               screenSizeX/2;screenSizeY
+alias rightmost     move screenOriginX+screenSizeX*0.4;screenOriginY             screenSizeX*0.6;screenSizeY
+alias rightless     move screenOriginX+screenSizeX*0.6;screenOriginY             screenSizeX*0.4;screenSizeY
+alias leftmost      move screenOriginX;screenOriginY                             screenSizeX*0.6;screenSizeY
+alias leftless      move screenOriginX;screenOriginY                             screenSizeX*0.4;screenSizeY
+alias top	    move screenOriginX;screenOriginY		                 screenSizeX;screenSizeY/2
+alias topleft	    move screenOriginX;screenOriginY		                 screenSizeX/2;screenSizeY/2
+alias topright	    move screenOriginX+screenSizeX/2;screenOriginY               screenSizeX/2;screenSizeY/2
+alias bottom	    move screenOriginX;screenOriginY+screenSizeY/2               screenSizeX;screenSizeY/2
+alias bottomleft    move screenOriginX;screenOriginY+screenSizeY/2    	         screenSizeX/2;screenSizeY/2
+alias bottomright   move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2
+alias center        move screenOriginX+screenSizeX/4;screenOriginY+screenSizeY/4 screenSizeX/2;screenSizeY/2
+
+# Concrete positions
+alias 1-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY                                 ${monitor-main}
+alias 1-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY                               ${monitor-main}
+alias 1-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY                 ${monitor-main}
+alias 2-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY                                 ${monitor-extr}
+alias 2-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY                               ${monitor-extr}
+alias 2-right       move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY                 ${monitor-extr}
+alias 2-righttop    move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY/2               ${monitor-extr}
+alias 2-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2 screenSizeX/2;screenSizeY/2 ${monitor-extr}
+ 
+# 2 Monitor layout
+layout 2monitors 'iTerm':MAIN_FIRST                       ${2-full} | ${1-full}
+layout 2monitors 'Google Chrome':REPEAT                   ${2-full} | ${1-left}
+layout 2monitors 'Firefox':REPEAT                         ${1-full} | ${2-right}
+#layout 2monitors 'Sublime Text 2':REPEAT                  ${1-full}
+#layout 2monitors 'MacVim':REPEAT              		  ${1-full}
+layout 2monitors 'Mail':MAIN_FIRST                        ${1-full}
+ 
+# 1 Monitor layout
+layout 1monitor 'iTerm':MAIN_FIRST                       ${1-full}
+#layout 1monitor 'Sublime Text 2':MAIN_FIRST              ${1-left}
+#layout 1monitor 'MacVim':MAIN_FIRST                   	  ${1-left}
+layout 1monitor 'Chrome':REPEAT                          ${1-full}
+#layout 1monitor 'Firefox':REPEAT                         ${1-full}
+layout 1monitor 'Mail':MAIN_FIRST                        ${1-full}
+ 
+# Default Layouts
+default 2monitors resolutions:${monitor-main};${monitor-extr};
+default 1monitor  resolutions:${monitor-main}
+ 
+# Numpad location Bindings
+#bind pad0 ${showHintsLeftHand}
+#bind pad1 ${leftless}
+#bind pad2 push bottom bar-resize:screenSizeY/2
+#bind pad3 ${rightless}
+#bind pad4 ${lefthalf}
+#bind pad5 ${full}
+#bind pad6 ${righthalf}
+#bind pad7 ${leftmost}
+#bind pad8 push top bar-resize:screenSizeY/2
+#bind pad9 ${rightmost}
+#bind padEnter grid padding:5 ${monitor-main}:6,2 ${monitor-extr}:8,3
+#bind pad+ throw next
+#bind pad. focus behind
+#bind pad* layout 2monitors
+#bind pad/ layout 1monitor
+
+
+bind e:cmd  ${showNormalHint}
+ 
+# ======================================
+# The HYPER key
+# ======================================
+ 
+alias hyper ctrl;alt;cmd
+ 
+# Location bindings
+bind up:${hyper} ${top}
+bind down:${hyper} ${bottom}
+bind left:${hyper} ${lefthalf}
+bind right:${hyper} ${righthalf}
+bind m:${hyper} ${full}
+bind c:${hyper} ${center}
+bind n:${hyper} throw next
+bind 1:${hyper} ${topleft}
+bind 2:${hyper} ${topright}
+bind 3:${hyper} ${bottomleft}
+bind 4:${hyper} ${bottomright}
+ 
+# Focus Bindings
+bind l:${hyper} focus right
+bind h:${hyper} focus left
+bind k:${hyper} focus up
+bind j:${hyper} focus down
+ 
+# App bindings
+bind e:${hyper} focus ${browser}
+bind u:${hyper} focus ${editor}
+bind g:${hyper} focus 'GitHub'
+bind m:${hyper} focus 'Mail'
+bind i:${hyper} focus 'iTerm'

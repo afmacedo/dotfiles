@@ -19,7 +19,8 @@ alias monitor-extr 1
 # Misc Aliases
 alias showHintsLeftHand hint AOEUIYQJKX
 alias showNormalHint hint AOEUIDHTNSYXFBPKGMCW
-alias browser 'Google Chrome'
+alias chrome 'Google Chrome'
+alias firefox 'Firefox'
 alias editor 'MacVim'
  
 # Abstract positions
@@ -85,7 +86,6 @@ default 1monitor  resolutions:${monitor-main}
 #bind pad* layout 2monitors
 #bind pad/ layout 1monitor
 
-
 bind e:cmd  ${showNormalHint}
  
 # ======================================
@@ -114,8 +114,9 @@ bind k:${hyper} focus up
 bind j:${hyper} focus down
  
 # App bindings
-bind e:${hyper} focus ${browser}
+bind e:${hyper} focus ${chrome}
+bind f:${hyper} focus ${firefox}
 bind u:${hyper} focus ${editor}
 bind g:${hyper} focus 'GitHub'
-bind m:${hyper} focus 'Mail'
+bind a:${hyper} focus 'Mail'
 bind i:${hyper} focus 'iTerm'

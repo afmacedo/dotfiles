@@ -1,12 +1,14 @@
 syntax on
 
+set t_Co=256
+
 set background=dark
 colorscheme torte
+colorscheme easyballs
 
 set showmatch
 
 "set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
-
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
 autocmd FileType xhtml,html set tabstop=2|set shiftwidth=2|set expandtab | set smarttab
@@ -34,7 +36,6 @@ endif
 :nmap <A-Left> :tabprevious<cr>
 :nmap <A-Right> :tabnext<cr>
 
-
 " Open PDF files
 autocmd BufReadPre *.pdf set ro
 autocmd BufReadPost *.pdf silent %!pdftotext -nopgbrk "%" - |fmt -csw78
@@ -51,7 +52,6 @@ let Tlist_Close_On_Select = 1
 let Tlist_Compact_Format = 1
 let Tlist_Exit_OnlyWindow = 1
 
-
 " auto complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 inoremap <Nul> <C-x><C-o>
@@ -67,3 +67,6 @@ autocmd vimenter * if !argc() | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 cabbrev nt NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
+" Javascript
+let javascript_enable_domhtmlcss = 1

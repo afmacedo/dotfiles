@@ -10,13 +10,16 @@ install_dotfiles:
 	@for f in $(FILES); do \
 		ln -sf $(SOURCE)/$$f $(TARGET)/.$$f; \
 	done
-	@mkdir -p ~/.ssh/
-	@chmod 700 ~/.ssh/
+	@mkdir -p $(HOME)/.ssh/
+	@chmod 700 $(HOME)/.ssh/
+	@mkdir -p $(TARGET)/.vim/colors
+	@ln -sf $(SOURCE)/easyballs.vim $(TARGET)/.vim/colors/easyballs.vim
 
 clean_dotfiles:
 	@-for f in $(FILES); do \
 		unlink $(TARGET)/.$$f; \
 	done
+	@rm -rf $(TARGET)/.vim/colors
 
 install: install_dotfiles
 

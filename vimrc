@@ -70,3 +70,6 @@ let NERDTreeShowHidden=1
 
 " Javascript
 let javascript_enable_domhtmlcss = 1
+
+" Python
+let python_highlight_all = 1 

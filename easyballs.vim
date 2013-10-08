@@ -103,7 +103,7 @@
     exe "hi Noise "           .White
     exe "hi Number "          .Blue
     exe "hi Operator "        .LightBlue
-    exe "hi PreCondit "       .Purple
+    exe "hi PreCondit "       .LightBlue
     exe "hi PreProc "         .Pink
     exe "hi Repeat "          .Peach
     exe "hi Special "         .Peach

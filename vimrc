@@ -7,12 +7,16 @@ colorscheme torte
 colorscheme easyballs
 
 set showmatch
+set ruler
 
 "set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
 
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
+autocmd FileType js set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab
 autocmd FileType xhtml,html set tabstop=2|set shiftwidth=2|set expandtab | set smarttab
+"#autocmd FileType xhtml,html colorscheme torte
 autocmd FileType css set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
+autocmd FileType css colorscheme torte 
 
 au BufRead,BufNewFile *.dat set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
 

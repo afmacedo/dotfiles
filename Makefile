@@ -14,12 +14,14 @@ install_dotfiles:
 	@chmod 700 $(HOME)/.ssh/
 	@mkdir -p $(TARGET)/.vim/colors
 	@ln -sf $(SOURCE)/easyballs.vim $(TARGET)/.vim/colors/easyballs.vim
+	@ln -sf $(SOURCE)/Preferences.sublime-settings $(HOME)/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
 clean_dotfiles:
 	@-for f in $(FILES); do \
 		unlink $(TARGET)/.$$f; \
 	done
 	@rm -rf $(TARGET)/.vim/colors
+	@unlink $(HOME)/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 
 install: install_dotfiles
 

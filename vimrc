@@ -3,7 +3,7 @@ syntax on
 set t_Co=256
 
 set background=dark
-colorscheme torte
+"colorscheme torte
 colorscheme easyballs
 
 set showmatch
@@ -11,7 +11,7 @@ set ruler
 
 "set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
 
-autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab | set smarttab | colorscheme torte
 autocmd FileType js set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab
 autocmd FileType xhtml,html set tabstop=2|set shiftwidth=2|set expandtab | set smarttab
 "#autocmd FileType xhtml,html colorscheme torte
@@ -77,3 +77,13 @@ let javascript_enable_domhtmlcss = 1
 
 " Python
 let python_highlight_all = 1 
+
+" Print line for Column 80
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+" Print line numbers
+" set nu

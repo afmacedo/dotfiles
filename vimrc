@@ -9,14 +9,12 @@ colorscheme easyballs
 set showmatch
 set ruler
 
-"set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
+set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab
 
-autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab | set smarttab | colorscheme torte
-autocmd FileType js set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab
-autocmd FileType xhtml,html set tabstop=2|set shiftwidth=2|set expandtab | set smarttab
-"#autocmd FileType xhtml,html colorscheme torte
-autocmd FileType css set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
-autocmd FileType css colorscheme torte 
+autocmd FileType python set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | colorscheme torte
+autocmd FileType js set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab | softtabstop=4
+autocmd FileType xhtml,html set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab
+autocmd FileType css set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | colorscheme torte
 
 au BufRead,BufNewFile *.dat set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
 
@@ -24,7 +22,7 @@ highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.c,*.h,*.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.c,*.h,*.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-"set noautoindent
+set noautoindent
 
 "set mouse=a
 set hlsearch

@@ -135,7 +135,15 @@ On_IWhite='\e[0;107m'   # White
 if [ -e "/usr/bin/git" ]; then
   PS1="\[$BGreen\]\u\[$BCyan\]@\[$BBlue\]\h\[$BYellow\]\[$BYellow\]\w\[\033[m\]\[$BPurple\]\$(__git_ps1)\[$BWhite\]\$ \[\033[00m\]" 
 else
- #PS1='\[\033[01;32m\]\u\[\033[01;37m\]@\[\033[01;34m\]\h\[\033[00m\] \$ '
   PS1='\[\033[01;32m\]\u\[\033[01;37m\]@\[\033[01;34m\]\h\[\033[00m\] . \W \$ '
 fi
 
+###
+# Pew
+if [ ! -z $VIRTUAL_ENV ]; then
+    PEW_AUTOCOMPLETE="$( dirname "$(pew shell_config)" )"/complete.bash
+
+    [ -f $PEW_AUTOCOMPLETE ] && source $PEW_AUTOCOMPLETE
+
+    PS1="\[$BWhite\]VE: [\[$BRed\]$(basename $VIRTUAL_ENV)\[$BWhite\]]\[\033[00m\] $PS1"
+fi

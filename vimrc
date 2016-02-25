@@ -12,9 +12,10 @@ set ruler
 set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab
 
 autocmd FileType python set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | colorscheme torte
-autocmd FileType js set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab | softtabstop=4
+autocmd FileType js set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | softtabstop=4
 autocmd FileType xhtml,html set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab
 autocmd FileType css set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | colorscheme torte
+autocmd FileType yml,yaml set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab
 
 au BufRead,BufNewFile *.dat set tabstop=4|set shiftwidth=4|set expandtab | set smarttab
 
@@ -26,6 +27,11 @@ set noautoindent
 
 "set mouse=a
 set hlsearch
+
+set foldmethod=indent
+set foldlevel=100
+nnoremap <space> za
+vnoremap <space> zf
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -62,7 +68,7 @@ set bs=2
 
 " Pathogen
 execute pathogen#infect()
-filetype plugin indent on
+"filetype plugin indent on
 
 " NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif

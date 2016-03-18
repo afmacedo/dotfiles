@@ -147,3 +147,12 @@ if [ ! -z $VIRTUAL_ENV ]; then
 
     PS1="\[$BWhite\]VE: [\[$BRed\]$(basename $VIRTUAL_ENV)\[$BWhite\]]\[\033[00m\] $PS1"
 fi
+
+workon () {
+    set_title $*
+    pew workon $*
+}
+
+set_title () {
+    printf '\e]2;%s\a' "$*";
+}

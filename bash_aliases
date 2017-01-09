@@ -11,7 +11,8 @@ if [ "`uname`" == 'Linux' ]; then
 else
   alias ls='ls -G'
 fi
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-
+alias gopath='export GOPATH=$(pwd)'

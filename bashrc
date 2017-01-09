@@ -138,6 +138,8 @@ else
   PS1='\[\033[01;32m\]\u\[\033[01;37m\]@\[\033[01;34m\]\h\[\033[00m\] . \W \$ '
 fi
 
+PATH=$HOME/bin:/usr/local/bin:$PATH
+
 ###
 # Pew
 if [ ! -z $VIRTUAL_ENV ]; then

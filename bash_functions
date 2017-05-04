@@ -158,3 +158,18 @@ _complete_ssh_hosts ()
         return 0
 }
 complete -F _complete_ssh_hosts ssh > /dev/null 2>&1
+
+###
+# Helper functions
+set_title () {
+    printf '\e]2;%s\a' "$*";
+}
+
+workon () {
+    set_title $*
+    pew workon $*
+}
+
+gopath () {
+    export GOPATH=$(pwd)
+}

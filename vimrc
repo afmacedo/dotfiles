@@ -9,9 +9,9 @@ colorscheme easyballs
 set showmatch
 set ruler
 
-set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab
+" set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab
 
-autocmd FileType python set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | colorscheme torte
+autocmd FileType python,py set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | colorscheme torte
 autocmd FileType js set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | softtabstop=4
 autocmd FileType xhtml,html set tabstop=2 | set shiftwidth=2 | set expandtab | set smarttab
 autocmd FileType css set tabstop=4 | set shiftwidth=4 | set expandtab | set smarttab | colorscheme torte

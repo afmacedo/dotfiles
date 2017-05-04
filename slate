@@ -53,13 +53,11 @@ alias 2-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2
 layout 2monitors 'iTerm':MAIN_FIRST                       ${2-full} | ${1-full}
 layout 2monitors 'Google Chrome':REPEAT                   ${2-full} | ${1-left}
 layout 2monitors 'Firefox':REPEAT                         ${1-full} | ${2-right}
-#layout 2monitors 'Sublime Text 2':REPEAT                  ${1-full}
 #layout 2monitors 'MacVim':REPEAT              		  ${1-full}
 layout 2monitors 'Mail':MAIN_FIRST                        ${1-full}
  
 # 1 Monitor layout
 layout 1monitor 'iTerm':MAIN_FIRST                       ${1-full}
-#layout 1monitor 'Sublime Text 2':MAIN_FIRST              ${1-left}
 #layout 1monitor 'MacVim':MAIN_FIRST                   	  ${1-left}
 layout 1monitor 'Chrome':REPEAT                          ${1-full}
 #layout 1monitor 'Firefox':REPEAT                         ${1-full}

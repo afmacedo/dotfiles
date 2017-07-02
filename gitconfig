@@ -1,6 +1,6 @@
 [user]
-	name = André F. Macêdo
-	email = afmacedo@gmail.com
+    name = Andre F. Macedo
+    email = afmacedo@gmail.com
 
 [color]
     diff = auto
@@ -49,9 +49,8 @@
 [push]
     default = current
 
-
 [hub]
 protocol = https
 
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
